@@ -34,20 +34,20 @@ SQLite DB (state/agents.db)
 
 | Layer | Technology |
 |-------|-----------|
-| LLM | `@anthropic-ai/sdk` — Claude API, streaming, tool use |
-| Queue | `bullmq` + `ioredis` — async job processing, retry, priority |
-| State | `better-sqlite3` — persistent agent state and task history |
-| API | `express` — HTTP interface to trigger and query agents |
-| Logging | `pino` — structured JSON logs |
+| LLM | `@anthropic-ai/sdk`: Claude API, streaming, tool use |
+| Queue | `bullmq` + `ioredis`: async job processing, retry, priority |
+| State | `better-sqlite3`: persistent agent state and task history |
+| API | `express`: HTTP interface to trigger and query agents |
+| Logging | `pino`: structured JSON logs |
 | Runtime | Node.js >= 20, ESM |
 
 ## Security
 
-- Shell execution sandboxed via command allowlist (`command-guard.js`) — 50+ permitted commands, 30+ blocked patterns
-- Protected path enforcement — blocks writes to `/etc/`, `/usr/`, `/bin/`, system directories
+- Shell execution sandboxed via command allowlist (`command-guard.js`): 50+ permitted commands, 30+ blocked patterns
+- Protected path enforcement: blocks writes to `/etc/`, `/usr/`, `/bin/`, system directories
 - Full audit log at `logs/command-guard.log`
 - Redis password authentication on all BullMQ connections
-- API bound to `127.0.0.1` only — not externally reachable
+- API bound to `127.0.0.1` only, not externally reachable
 
 ## Setup
 
@@ -78,11 +78,11 @@ pm2 save
 
 This repo is the task execution layer in a three-agent network:
 
-- **Earendil** — conversational interface + memory layer (OpenClaw, Telegram)
-- **Morgoth** — regex-based job router and orchestrator (BullMQ dispatcher)
-- **claude-agents (Sauron)** — this repo — task execution engine
+- **Earendil**: conversational interface + memory layer (OpenClaw, Telegram)
+- **Morgoth**: regex-based job router and orchestrator (BullMQ dispatcher)
+- **claude-agents (Sauron)**: this repo. Task execution engine.
 
-Named after Sauron, Morgoth's lieutenant in Tolkien's Silmarillion — the executor who carries out what the orchestrator commands.
+Named after Sauron, Morgoth's lieutenant in Tolkien's Silmarillion. The executor who carries out what the orchestrator commands.
 
 ## License
 
