@@ -1,5 +1,7 @@
 # claude-agents
 
+![CI](https://github.com/SolomonSmith-dev/claude-agents/actions/workflows/ci.yml/badge.svg) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Node](https://img.shields.io/badge/node-20+-green.svg)
+
 A local multi-agent orchestration backend for running autonomous Claude agents on self-hosted hardware. Agents receive tasks via HTTP API, process them using the Anthropic SDK with multi-turn reasoning, and queue async jobs via BullMQ + Redis. State is persisted to SQLite.
 
 Built to run as a home server daemon on a Mac Mini (Debian 12) as part of a larger agent network including a conversational interface (Earendil via OpenClaw) and an orchestration layer (Morgoth).
